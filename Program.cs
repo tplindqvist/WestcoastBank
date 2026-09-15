@@ -138,6 +138,7 @@ class Program
         {
             Console.WriteLine(account_1.Customer.FullName);
             Console.WriteLine(account_1.AccountNumber);
+            Console.WriteLine(account_1);
         }
         Console.ResetColor();
     }
