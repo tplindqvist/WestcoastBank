@@ -3,7 +3,7 @@
 public class Account(string accountNumber, string firstName, string lastName)
 {
 
-    public virtual int Balance { get; private set; }
+    public virtual int Balance { get; protected set; }
     public string AccountNumber { get; } = accountNumber;
     public Customer Customer { get; set; } = new() { FirstName = firstName, LastName = lastName };
     public List<Transaction> Transactions { get; } = [];
