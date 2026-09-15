@@ -5,7 +5,7 @@ public class Account(string accountNumber, string firstName, string lastName)
 
     public virtual int Balance { get; protected set; }
     public string AccountNumber { get; } = accountNumber;
-    public Customer Customer { get; set; } = new() { FirstName = firstName, LastName = lastName };
+    public Customer Customer { get; set; } = GetCustomer(firstName, lastName);
     public List<Transaction> Transactions { get; } = [];
 
     public virtual void Deposit(int amount)
@@ -34,4 +34,25 @@ public class Account(string accountNumber, string firstName, string lastName)
         };
         Transactions.Add(tran);
     }
+        
+
+        private static Customer GetCustomer(string firstName, string lastName)
+    {
+        Customer customer = new()
+        {
+            FirstName = firstName,
+            LastName = lastName,
+            Email = "eva@mail.se",
+            Phone = "070-123 45 67"
+        };
+
+        customer.Addresses.Add(new Address
+        {
+            AddressLine = "Kungsgatan 1",
+            PostalCode = "422 41",
+            City = "Göteborg"
+        });
+        return customer;
+    }
+    
 }

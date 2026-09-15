@@ -9,5 +9,10 @@ public class Customer
     public string? Phone { get; set; }
     public List<Address> Addresses { get; } = [];
 
+    public override string ToString()
+    {
+        string adresser = string.Join(", ", Addresses);
+        return $"Kund: {FullName}, {Email}, {Phone}, {adresser}";
+    }
     
 }

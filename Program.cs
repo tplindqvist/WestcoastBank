@@ -6,6 +6,7 @@ class Program
 {
     static Account account_1 = new("1111-5678", "Eva", "Nilsson");
     static SavingsAccount account_2 = new("1111-5678", "Eva", "Nilsson");
+    
     static List<Account> accounts = [];
 
     static void Main()
@@ -134,11 +135,18 @@ class Program
     static void DisplayAccounts()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        //foreach (var account in accounts)
+        foreach (var account in accounts)
         {
-            Console.WriteLine(account_1.Customer.FullName);
-            Console.WriteLine(account_1.AccountNumber);
-            Console.WriteLine(account_1);
+            Console.WriteLine($"Kontonummer: {account.AccountNumber}");
+            Console.WriteLine(account.Customer);
+            Console.WriteLine($"Saldo: {account.Balance}");
+
+            Console.WriteLine("Transaktioner: ");
+            foreach (var tran in account.Transactions)
+            {
+                Console.WriteLine($" {tran}");
+            }
+            Console.WriteLine();
         }
         Console.ResetColor();
     }
